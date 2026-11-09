@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hong Kong Live</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <p class="eyebrow">YOUR CITY AT A GLANCE</p>
+    <h1>Hong Kong Live</h1>
+  </header>
+  <main class="cards">
+    <section class="card" id="weather" aria-labelledby="weather-title">
+      <h2 id="weather-title">Weather</h2>
+      <div class="card-content" id="weather-content">
+        <p class="status" id="weather-status" role="status">Loading weather data…</p>
+        <div id="weather-items" hidden>
+          <div class="weather-item" id="item-temperature">
+            <h3>Temperature</h3>
+            <p class="weather-value" data-role="value">Loading weather data…</p>
+            <p class="weather-time" data-role="time"></p>
+          </div>
+          <div class="weather-item" id="item-humidity">
+            <h3>Relative humidity</h3>
+            <p class="weather-value" data-role="value">Loading weather data…</p>
+            <p class="weather-time" data-role="time"></p>
+          </div>
+        </div>
+        <p class="weather-attribution">Source: Government of the Hong Kong Special Administrative Region / Hong Kong Observatory and DATA.GOV.HK. Observation times are shown for each measurement.</p>
+      </div>
+    </section>
+    <section class="card" id="transport" aria-labelledby="transport-title">
+      <h2 id="transport-title">Transport</h2>
+      <div class="card-content" aria-live="polite">
+        <p>HKU · Island line · UP</p>
+        <p id="transport-status" class="status">Loading train data…</p>
+        <div id="transport-items" hidden>
+          <p id="train-minutes" class="weather-value"></p>
+          <p id="train-destination"></p>
+        </div>
+        <p class="weather-attribution">Source: MTR Corporation / DATA.GOV.HK. Refresh to update.</p>
+      </div>
+    </section>
+    <section class="card" id="air-quality" aria-labelledby="air-quality-title">
+      <h2 id="air-quality-title">Air Quality</h2>
+      <div class="card-content" aria-live="polite">
+        <p id="air-quality-status" class="status">Loading air quality data…</p>
+        <div id="air-quality-items" hidden>
+          <p id="aqhi-station"></p>
+          <p id="aqhi-value" class="weather-value"></p>
+          <p id="aqhi-risk"></p>
+        </div>
+        <p class="weather-attribution">Source: Environmental Protection Department / DATA.GOV.HK. Refresh to update.</p>
+      </div>
+    </section>
+  </main>
+  <footer>Data from the Hong Kong Government, Hong Kong Observatory and DATA.GOV.HK.</footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
