@@ -4,16 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hong Kong Live</title>
+  <meta name="description" content="A clear view of Hong Kong's current weather, HKU train departures and Central/Western air quality, using official open data.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <p class="eyebrow">YOUR CITY AT A GLANCE</p>
-    <h1>Hong Kong Live</h1>
+  <header class="page-header">
+    <div class="masthead">
+      <a class="wordmark" href="./" aria-label="Hong Kong Live home"><span class="brand-mark" aria-hidden="true">hk<span>·</span></span> HONG KONG LIVE</a>
+      <span class="masthead-note">A city in the making. A moment at a glance.</span>
+      <span class="data-label">Official open data</span>
+    </div>
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true"></span> YOUR CITY AT A GLANCE</p>
+        <h1>Hong Kong,<br><span>in the moment.</span></h1>
+        <p class="intro">A little clarity before you head out.<br>Weather, next trains and air quality, all in one place.</p>
+      </div>
+      <div class="city-illustration" aria-hidden="true">
+        <svg viewBox="0 0 470 230" fill="none" focusable="false">
+          <circle cx="344" cy="79" r="47" fill="#e0e9ce"/>
+          <path d="M15 181c39-30 57-53 96-39 34 12 50-47 89-48 44-1 80 69 119 48 40-21 79-4 136 39" fill="#e7ece5"/>
+          <g stroke="#9aafa3" stroke-width="1.5" stroke-linejoin="round">
+            <path d="M43 181v-45h26v45M79 181v-77h27v77M86 104V91h13v13M117 181v-54h20v54M148 181V78h29v103M156 78V62h12v16M188 181v-74l23-26 24 26v74M211 81V47M199 98l24 29M223 98l-24 29M199 127l24 29M223 127l-24 29M246 181V64l10-15 10 15v117M256 49V27M277 181V99h28v82M284 99V86h14v13M316 181v-56h22v56M349 181v-82h33v82M357 99V85h17v14M395 181v-43h27v43" fill="#f6f7ef"/>
+            <path d="M155 96h15m-15 14h15m-15 14h15m-15 14h15m-15 14h15M86 119h13m-13 15h13m-13 15h13M283 114h16m-16 16h16m-16 16h16m-16 16h16M356 115h19m-19 16h19m-19 16h19m-19 16h19"/>
+          </g>
+          <path d="M25 182h420" stroke="#55796e" stroke-width="2"/>
+          <path d="M57 197h105m21 0h36m22 0h101m17 0h41M100 209h82m21 0h48m21 0h72" stroke="#b8c9c0" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>22.28° N &nbsp; / &nbsp; 114.16° E</span>
+      </div>
+    </div>
   </header>
+  <div class="section-bar">
+    <div><span class="section-number">01 /</span><h2>Your daily snapshot</h2></div>
+    <a class="refresh-link" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"/></svg>Refresh readings</a>
+  </div>
   <main class="cards">
     <section class="card" id="weather" aria-labelledby="weather-title">
-      <h2 id="weather-title">Weather</h2>
+      <div class="card-heading"><h2 id="weather-title">Weather</h2><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></span></div>
+      <p class="card-kicker">CURRENT CONDITIONS</p>
       <div class="card-content" id="weather-content">
         <p class="status" id="weather-status" role="status">Loading weather data…</p>
         <div id="weather-items" hidden>
@@ -32,9 +61,10 @@
       </div>
     </section>
     <section class="card" id="transport" aria-labelledby="transport-title">
-      <h2 id="transport-title">Transport</h2>
+      <div class="card-heading"><h2 id="transport-title">Transport</h2><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="15" rx="4"/><path d="M5 11h14M9 3v8m6-8v8M8 21l2-3m6 3-2-3M8 14h1m6 0h1"/></svg></span></div>
+      <p class="card-kicker">NEXT DEPARTURE</p>
       <div class="card-content" aria-live="polite">
-        <p>HKU · Island line · UP</p>
+        <p class="route"><span aria-hidden="true"></span>HKU · Island line · UP</p>
         <p id="transport-status" class="status">Loading train data…</p>
         <div id="transport-items" hidden>
           <p id="train-minutes" class="weather-value"></p>
@@ -44,7 +74,8 @@
       </div>
     </section>
     <section class="card" id="air-quality" aria-labelledby="air-quality-title">
-      <h2 id="air-quality-title">Air Quality</h2>
+      <div class="card-heading"><h2 id="air-quality-title">Air Quality</h2><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h13a3 3 0 1 0-3-3M3 12h16a2 2 0 1 1-2 2M3 16h6a3 3 0 1 1-3 3"/></svg></span></div>
+      <p class="card-kicker">LOCAL AIR QUALITY</p>
       <div class="card-content" aria-live="polite">
         <p id="air-quality-status" class="status">Loading air quality data…</p>
         <div id="air-quality-items" hidden>
@@ -56,7 +87,10 @@
       </div>
     </section>
   </main>
-  <footer>Data from the Hong Kong Government, Hong Kong Observatory and DATA.GOV.HK.</footer>
+  <footer>
+    <div class="footer-top"><span class="footer-brand">A small window into a moving city.</span><span class="refresh-note">Readings load on open or refresh.</span></div>
+    <div class="footer-bottom"><p>Data from the Hong Kong Government, Hong Kong Observatory and DATA.GOV.HK.</p><span>HONG KONG LIVE <span aria-hidden="true">↗</span></span></div>
+  </footer>
   <script type="module" src="app.js"></script>
 </body>
 </html>
